@@ -1,0 +1,42 @@
+---
+title: "Iris Correlation Explorer- Coursera Developing Data Products"
+output: slidy_presentation
+author: "pankaj sharma"
+---
+
+## Scatterplot Matrix with GGally
+
+* A scatterplot matrix is a series of scatterplots organized in a grid and often used to describe the relationship between different variables. 
+* These plots can range over different degrees of complexity, from merely plotting correlations between variablesup to histograms and kernel density plots of distributions that incorporate other variable metadata
+
+
+## Plotting Options
+
+**Argument**  |  **Plots Available**
+------------- | -----------------------
+continuous    |"points","smooth","density","cor","blank"
+discrete      |"facetbar", "ratio", "blank"
+combo         |"box", "dot", "facethist","facetdensity", "denstrip", "blank"
+
+### Variable combination
+
+- continuous versus.continuous
+- discrete versus. discrete
+- continuous versus. discrete
+
+
+## R Code and Output
+
+```{r}
+summary(iris)
+```
+
+## Correlation  Plot
+
+```{r, echo=FALSE,warning=FALSE}
+require(GGally)
+ggpairs(iris, upper=list(continuous="density"),
+lower=list(continuous="smooth",combo="facetdensity"),
+color="Species")
+```
+
